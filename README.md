@@ -2,8 +2,7 @@
 
 [PostCSS] plugin for sass-like mixins.
 
-This plugin is based on [postcss-mixins] but with the difference that it uses Sass-based syntax to declare and invoke mixins.
-
+This plugin is based on [postcss-mixins] but with the difference that it uses Sass-like syntax to declare and invoke mixins.
 
 [PostCSS]:                 https://github.com/postcss/postcss
 [postcss-mixins]:          https://github.com/postcss/postcss-mixins
