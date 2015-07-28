@@ -1,0 +1,30 @@
+{
+  "name": "postcss-sassy-mixins",
+  "version": "1.0.0",
+  "description": "PostCSS plugin for sass-like mixins",
+  "keywords": [
+    "postcss",
+    "css",
+    "postcss-plugin",
+    "mixins",
+    "sass"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp"
+  },
+  "author": "Andy Jansson",
+  "license": "MIT",
+  "dependencies": {
+    "glob": "^5.0.14",
+    "postcss": "^4.1.16",
+    "postcss-simple-vars": "^0.3.0"
+  },
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "gulp": "^3.9.0",
+    "gulp-eslint": "^0.15.0",
+    "gulp-mocha": "^2.1.3",
+    "mocha": "^2.2.5"
+  }
+}
