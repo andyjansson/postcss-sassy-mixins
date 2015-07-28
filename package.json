@@ -13,8 +13,16 @@
   "scripts": {
     "test": "gulp"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andyjansson/postcss-sassy-mixins.git"
+  },
   "author": "Andy Jansson",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andyjansson/postcss-sassy-mixins/issues"
+  },
+  "homepage": "https://github.com/andyjansson/postcss-sassy-mixins#readme",
   "dependencies": {
     "glob": "^5.0.14",
     "postcss": "^4.1.16",
