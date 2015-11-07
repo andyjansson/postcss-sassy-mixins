@@ -25,7 +25,7 @@
   "homepage": "https://github.com/andyjansson/postcss-sassy-mixins#readme",
   "dependencies": {
     "glob": "^5.0.14",
-    "postcss": "^4.1.16",
+    "postcss": "^5.0.10",
     "postcss-simple-vars": "^0.3.0"
   },
   "devDependencies": {
