@@ -2,8 +2,6 @@
 
 [PostCSS] plugin for sass-like mixins.
 
-This plugin is based on [postcss-mixins]
-
 [PostCSS]:                 https://github.com/postcss/postcss
 [postcss-mixins]:          https://github.com/postcss/postcss-mixins
 [ci-img]:                  https://travis-ci.org/andyjansson/postcss-sassy-mixins.svg
