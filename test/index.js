@@ -86,6 +86,11 @@ describe('postcss-sassy-mixins', function () {
 			'@media {\n    a {}\n}');
 	});
 
+	it('supports mixins with optional content', function () {
+		test('@mixin m { @media { @content; } } @include m;',
+			'@media {}');
+	});
+
 	it('supports using supplied arguments', function () {
 		test('@mixin m($a, $b: b, $c: c) { v: $a $b $c; } @include m(1, 2);',
 			'v: 1 2 c;');

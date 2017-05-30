@@ -135,7 +135,9 @@ module.exports = postcss.plugin('postcss-sassy-mixins', function (opts) {
 				if (decl.args) vars({ only: values })(proxy);
 				if (decl.content) {
 					proxy.walkAtRules('content', function (place) {
-						place.replaceWith(rule.nodes);
+						if (typeof rule.nodes !== 'undefined')
+							place.replaceWith(rule.nodes);
+						else place.remove();
 					});
 				}
 				rule.parent.insertBefore(rule, proxy.nodes);
