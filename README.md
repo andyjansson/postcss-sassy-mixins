@@ -7,7 +7,7 @@
 [ci-img]:                  https://travis-ci.org/andyjansson/postcss-sassy-mixins.svg
 [ci]:                      https://travis-ci.org/andyjansson/postcss-sassy-mixins
 
-##Installation
+## Installation
 
 ```js
 npm install postcss-sassy-mixins
@@ -57,14 +57,30 @@ Turns into:
 
 Type: `Object`
 
-Object of function mixins.
+Object of mixins. The mixin can either be a function or an object.
+
+```js
+require('postcss-mixins')({
+    mixins: {
+        clearfix: {
+            '&::after': {
+                content: '""',
+                display: 'table',
+                clear: 'both'
+            }
+        },
+        color: function (rule, color) {
+            rule.replaceWith({ prop: 'color', value: color });
+        }
+    }
+})
+```
 
 ### `mixinsDir`
 
 Type: `string|string[]`
 
-Autoload all mixins from one or more dirs. Mixin name will be taken from file name.
-
+Autoload all mixins from one or more directories. The name of the mixin will be taken from file name.
 
 ```js
 // gulpfile.js
@@ -88,7 +104,7 @@ module.exports = {
 
 Type: `string|string[]`
 
-Similar to [`mixinsDir`](#mixinsdir); except, you can provide
+Similar to [`mixinsDir`](#mixinsdir), except you provide
 [glob](https://github.com/isaacs/node-glob) syntax to target or not target
 specific files.
 
