@@ -83,17 +83,17 @@ describe('postcss-sassy-mixins', function () {
 
 	it('supports mixins with content', function () {
 		test('@mixin m { @media { @content; } } @include m { a {} }',
-			'@media {\n    a {}\n}');
+			' @media { a {} }');
 	});
 
 	it('supports mixins with optional content', function () {
 		test('@mixin m { @media { @content; } } @include m;',
-			'@media {}');
+			' @media { }');
 	});
 
 	it('supports using supplied arguments', function () {
 		test('@mixin m($a, $b: b, $c: c) { v: $a $b $c; } @include m(1, 2);',
-			'v: 1 2 c;');
+			' v: 1 2 c;');
 	});
 
 	it('supports loading mixins from a directory', function () {

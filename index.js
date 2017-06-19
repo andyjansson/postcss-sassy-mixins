@@ -127,25 +127,26 @@ module.exports = postcss.plugin('postcss-sassy-mixins', function (opts) {
 				if (decl.args) decl.args.forEach(function (arg, i) {
 					values[arg[0]] = params[i] || arg[1];
 				});
-				var clones = [];
-				mixin.nodes.forEach(function(node) {
-					clones.push(node.clone());
+				var clones = mixin.nodes.map(function (node) {
+					return node.clone();
 				});
 				var proxy = postcss.rule({ nodes: clones });
 				if (decl.args) vars({ only: values })(proxy);
 				if (decl.content) {
 					proxy.walkAtRules('content', function (place) {
 						if (typeof rule.nodes !== 'undefined')
-							place.replaceWith(rule.nodes);
+							place.replaceWith(rule.nodes.map(function (node) {
+								return node.clone();
+							}));
 						else place.remove();
 					});
 				}
-				rule.parent.insertBefore(rule, proxy.nodes);
+				rule.before(proxy.nodes);
 				proxy.walkAtRules('include', includeMixin);
 			}
 			else {
 				var root = objectToNodes(postcss.root(), mixin, rule.source);
-				rule.parent.insertBefore(rule, root);
+				rule.before(root);
 			}
 		}
 		rule.remove();
