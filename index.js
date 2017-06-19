@@ -127,7 +127,7 @@ module.exports = postcss.plugin('postcss-sassy-mixins', function (opts) {
 				if (decl.args) decl.args.forEach(function (arg, i) {
 					values[arg[0]] = params[i] || arg[1];
 				});
-        var clones = mixin.nodes.map(function (node) {
+				var clones = mixin.nodes.map(function (node) {
 					return node.clone();
 				});
 				var proxy = postcss.rule({ nodes: clones });
