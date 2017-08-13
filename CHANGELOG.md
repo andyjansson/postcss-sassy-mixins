@@ -1,3 +1,9 @@
+# 3.0.0 - Unreleased
+* Rewrite in ES6.
+* Add Babel.
+* Replace Mocha with AVA.
+* Update dependencies.
+
 # 2.1.0
 * Make `@content` invocation optional.
 

@@ -1,6 +1,6 @@
 {
   "name": "postcss-sassy-mixins",
-  "version": "2.1.0",
+  "version": "3.0.0-beta.0",
   "description": "PostCSS plugin for sass-like mixins",
   "keywords": [
     "postcss",
@@ -9,9 +9,16 @@
     "mixins",
     "sass"
   ],
-  "main": "index.js",
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
   "scripts": {
-    "test": "gulp"
+    "prepublish": "npm run build && del-cli dist/__tests__",
+    "build": "del-cli dist && cross-env BABEL_ENV=publish babel src --out-dir dist",
+    "pretest": "eslint src && npm run build",
+    "test": "nyc ava src/__tests__/"
   },
   "repository": {
     "type": "git",
@@ -24,15 +31,34 @@
   },
   "homepage": "https://github.com/andyjansson/postcss-sassy-mixins#readme",
   "dependencies": {
-    "glob": "^6.0.4",
-    "postcss": "^6.0.2",
+    "glob": "^7.1.2",
+    "postcss": "^6.0.9",
     "postcss-simple-vars": "^4.0.0"
   },
   "devDependencies": {
-    "chai": "^3.4.1",
-    "gulp": "^3.9.0",
-    "gulp-eslint": "^1.1.1",
-    "gulp-mocha": "^2.2.0",
-    "mocha": "^2.3.4"
+    "ava": "^0.21.0",
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-env": "^1.6.0",
+    "babel-register": "^6.24.1",
+    "cross-env": "^5.0.5",
+    "del-cli": "^1.1.0",
+    "eslint": "^4.4.1",
+    "eslint-config-i-am-meticulous": "^6.0.1",
+    "eslint-plugin-babel": "^4.1.2",
+    "eslint-plugin-import": "^2.7.0",
+    "nyc": "^11.1.0"
+  },
+  "ava": {
+    "require": "babel-register"
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": "eslint-config-i-am-meticulous",
+    "rules": {
+      "no-bitwise": "off"
+    }
   }
 }
